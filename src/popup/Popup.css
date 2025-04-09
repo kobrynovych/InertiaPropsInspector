@@ -1,0 +1,35 @@
+main {
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 1.5rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: #61dafb;
+  margin: 0 auto 1rem;
+}
+
+button {
+  width: 100%;
+  font-size: 1rem;
+  color: #61dafb;
+  border: 1px solid #61dafb;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  padding: 10px 1rem;
+  margin: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+p {
+  margin: 0.5rem auto 0;
+}
