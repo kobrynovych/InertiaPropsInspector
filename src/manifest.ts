@@ -27,8 +27,8 @@ export default defineManifest({
   // },
   content_scripts: [
     {
-      // matches: ['http://*/*', 'https://*/*'],
-      matches: ['<all_urls>'],
+      matches: ['http://*/*', 'https://*/*'],
+      // matches: ['<all_urls>'],
       js: ['src/contentScript/index.ts'],
       run_at: 'document_start',
     },
@@ -39,11 +39,12 @@ export default defineManifest({
   web_accessible_resources: [
     {
       resources: ['img/logo-16.png', 'img/logo-32.png', 'img/logo-48.png', 'img/logo-128.png'],
-      matches: ['<all_urls>'],
+      // matches: ['<all_urls>'],
+      matches: ['http://*/*', 'https://*/*'],
     },
   ],
   // permissions: ['sidePanel', 'storage'],
-  permissions: ['storage'],
+  // permissions: ['storage'],
   // chrome_url_overrides: {
   //   newtab: 'newtab.html',
   // },
