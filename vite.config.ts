@@ -1,10 +1,8 @@
 import { defineConfig } from 'vite'
 import { crx } from '@crxjs/vite-plugin'
-import react from '@vitejs/plugin-react'
 
 import manifest from './src/manifest'
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
     build: {
@@ -15,8 +13,25 @@ export default defineConfig(({ mode }) => {
           chunkFileNames: 'assets/chunk-[hash].js',
         },
       },
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_debugger: true,
+        },
+      },
     },
-    plugins: [crx({ manifest }), react()],
+    esbuild: {
+      jsxFactory: 'h',
+      jsxFragment: 'Fragment',
+      jsxInject: `import { h, Fragment } from 'preact'`,
+    },
+    resolve: {
+      alias: {
+        'react': 'preact/compat',
+        'react-dom': 'preact/compat',
+      },
+    },
+    plugins: [crx({ manifest })],
     legacy: {
       skipWebSocketTokenCheck: true,
     },
