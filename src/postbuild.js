@@ -4,21 +4,18 @@ import { minify } from 'terser'
 
 const buildDir = resolve('build')
 
-// 1. Remove .vite directory
 rmSync(join(buildDir, '.vite'), { recursive: true, force: true })
 
-// 2. Minify all HTML files
-function minifyHtml(html) {
-  return html
+const minifyHtml = (html) =>
+  html
     .replace(/<!--.*?-->/gs, '')
     .replace(/\s+/g, ' ')
     .replace(/>\s+</g, '><')
     .replace(/\s+>/g, '>')
     .replace(/\s+\/>/g, '/>')
     .trim()
-}
 
-async function processDir(dir) {
+const processDir = async (dir) => {
   for (const entry of readdirSync(dir)) {
     const fullPath = join(dir, entry)
     const stat = statSync(fullPath)

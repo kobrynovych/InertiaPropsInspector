@@ -1,9 +1,7 @@
-import { createReadStream, createWriteStream, mkdirSync, readFileSync } from 'fs'
+import { createWriteStream, mkdirSync, readFileSync } from 'fs'
 import { join, resolve } from 'path'
-import { createRequire } from 'module'
 import archiver from 'archiver'
 
-const require = createRequire(import.meta.url)
 const buildDir = resolve('build')
 const manifest = JSON.parse(readFileSync(join(buildDir, 'manifest.json'), 'utf-8'))
 

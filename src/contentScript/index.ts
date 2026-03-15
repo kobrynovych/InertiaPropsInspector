@@ -1,4 +1,4 @@
-function getPageData(): unknown {
+const getPageData = (): unknown => {
   const el = document.querySelector<HTMLElement>('[data-page]')
   if (!el?.dataset?.page) return null
 
@@ -21,7 +21,7 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
       console.log('data-page: ', data)
       sendResponse({ data })
     } else {
-      sendResponse({ warn: 'No data-page found on this page.' })
+      sendResponse({ warn: 'No Inertia props found on this page.' })
     }
   } else {
     sendResponse({ warn: 'Unknown message type' })
