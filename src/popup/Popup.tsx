@@ -36,9 +36,9 @@ export const Popup = () => {
     <main>
       <h3>Inertia Props Inspector</h3>
       <button onClick={handleClick}>Print Data to Console</button>
-      {status && <p className="status">{status}</p>}
+      {status && <p>{status}</p>}
     </main>
   )
 }
 
-export default Popup
+

@@ -23,7 +23,7 @@ export default defineConfig(({ mode }) => {
           comments: false,
         },
       },
-      cssMinify: 'lightningcss',
+      cssMinify: true,
     },
     esbuild: {
       jsxFactory: 'h',

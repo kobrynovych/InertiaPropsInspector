@@ -1,22 +1,25 @@
-let pageData: unknown = null
-
-document.addEventListener('DOMContentLoaded', () => {
+function getPageData(): unknown {
   const el = document.querySelector<HTMLElement>('[data-page]')
+  if (!el?.dataset?.page) return null
 
-  if (el?.dataset?.page) {
+  try {
+    return JSON.parse(el.dataset.page)
+  } catch {
     try {
-      pageData = JSON.parse(decodeURIComponent(el.dataset.page))
+      return JSON.parse(decodeURIComponent(el.dataset.page))
     } catch (error) {
       console.error('JSON parsing error: ', error)
+      return null
     }
   }
-})
+}
 
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message?.type === 'LOG_PAGE_DATA') {
-    if (pageData) {
-      console.log('data-page: ', pageData)
-      sendResponse({ data: pageData })
+    const data = getPageData()
+    if (data) {
+      console.log('data-page: ', data)
+      sendResponse({ data })
     } else {
       sendResponse({ warn: 'No data-page found on this page.' })
     }

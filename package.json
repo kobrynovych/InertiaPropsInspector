@@ -3,14 +3,15 @@
   "displayName": "Inertia Props Inspector",
   "version": "0.0.2",
   "author": "I.K.",
-  "description": "Intercept Inertia data-page attributes",
+  "description": "For inspecting and logging Inertia.js page props (data-page) directly in the console.",
   "type": "module",
   "license": "MIT",
   "keywords": [
     "chrome-extension",
-    "react",
-    "vite",
-    "create-chrome-ext"
+    "inertia",
+    "inertiajs",
+    "devtools",
+    "props-inspector"
   ],
   "engines": {
     "node": ">=14.18.0"
@@ -26,7 +27,6 @@
     "@crxjs/vite-plugin": "^2.0.0-beta.26",
     "@types/chrome": "^0.0.313",
     "archiver": "^7.0.1",
-    "lightningcss": "^1.32.0",
     "prettier": "^3.5.3",
     "terser": "^5.46.0",
     "typescript": "^5.8.3",

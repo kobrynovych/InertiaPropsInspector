@@ -19,18 +19,19 @@ export default defineManifest({
     default_popup: 'popup.html',
     default_icon: 'img/logo-48.png',
   },
+  host_permissions: ['<all_urls>'],
   content_scripts: [
     {
-      matches: ['http://*/*', 'https://*/*'],
+      matches: ['<all_urls>'],
       js: ['src/contentScript/index.ts'],
-      run_at: 'document_start',
+      run_at: 'document_idle',
     },
   ],
   web_accessible_resources: [
     {
       resources: ['img/logo-16.png', 'img/logo-32.png', 'img/logo-48.png', 'img/logo-128.png'],
-      matches: ['http://*/*', 'https://*/*'],
+      matches: ['<all_urls>'],
     },
   ],
-  permissions: ['activeTab'],
+  permissions: ['activeTab', 'scripting'],
 })
