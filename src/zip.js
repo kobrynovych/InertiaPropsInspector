@@ -1,10 +1,25 @@
-import gulp from 'gulp'
-import zip from 'gulp-zip'
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
-const manifest = require('../build/manifest.json')
+import { createWriteStream, mkdirSync, readFileSync } from 'fs'
+import { join, resolve } from 'path'
+import archiver from 'archiver'
 
-gulp
-  .src('build/**', { encoding: false })
-  .pipe(zip(`${manifest.name.replaceAll(' ', '-')}-${manifest.version}.zip`))
-  .pipe(gulp.dest('package'))
+const buildDir = resolve('build')
+const manifest = JSON.parse(readFileSync(join(buildDir, 'manifest.json'), 'utf-8'))
+
+const outDir = resolve('package')
+mkdirSync(outDir, { recursive: true })
+
+const fileName = `${manifest.name.replaceAll(' ', '-')}-${manifest.version}.zip`
+const output = createWriteStream(join(outDir, fileName))
+const archive = archiver('zip', { zlib: { level: 9 } })
+
+output.on('close', () => {
+  console.log(`✅ ${fileName} (${(archive.pointer() / 1024).toFixed(1)} KB)`)
+})
+
+archive.on('error', (err) => {
+  throw err
+})
+
+archive.pipe(output)
+archive.glob('**/*', { cwd: buildDir, ignore: ['.vite/**'] })
+archive.finalize()

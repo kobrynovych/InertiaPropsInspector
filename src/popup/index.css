@@ -1,24 +1,24 @@
 :root {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Open Sans',
-    'Helvetica Neue',
-    sans-serif;
+  --bg: #1e1e2e;
+  --text: #cdd6f4;
+  --accent: #61dafb;
+  --accent-hover: #4fc3f7;
+  --donate: #ff5e5b;
+  --donate-hover: #e84e4b;
 
-  color-scheme: light dark;
-  background-color: #242424;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    background-color: #fafafa;
+    --bg: #f5f5f5;
+    --text: #1e1e2e;
+    --accent: #0277bd;
+    --accent-hover: #01579b;
+    --donate: #e5443d;
+    --donate-hover: #c9302c;
   }
 }
 
