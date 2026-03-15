@@ -17,8 +17,13 @@ export default defineConfig(({ mode }) => {
       terserOptions: {
         compress: {
           drop_debugger: true,
+          passes: 2,
+        },
+        format: {
+          comments: false,
         },
       },
+      cssMinify: 'lightningcss',
     },
     esbuild: {
       jsxFactory: 'h',

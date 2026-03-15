@@ -23,5 +23,5 @@ archive.on('error', (err) => {
 })
 
 archive.pipe(output)
-archive.directory(buildDir, false)
+archive.glob('**/*', { cwd: buildDir, ignore: ['.vite/**'] })
 archive.finalize()
