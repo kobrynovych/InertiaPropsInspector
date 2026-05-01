@@ -24,12 +24,18 @@ export default defineManifest({
     {
       matches: ['<all_urls>'],
       js: ['src/contentScript/index.ts'],
-      run_at: 'document_idle',
+      run_at: 'document_start',
     },
   ],
   web_accessible_resources: [
     {
-      resources: ['img/logo-16.png', 'img/logo-32.png', 'img/logo-48.png', 'img/logo-128.png'],
+      resources: [
+        'img/logo-16.png',
+        'img/logo-32.png',
+        'img/logo-48.png',
+        'img/logo-128.png',
+        'mainWorld.js',
+      ],
       matches: ['<all_urls>'],
     },
   ],

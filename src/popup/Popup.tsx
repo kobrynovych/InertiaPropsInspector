@@ -36,18 +36,29 @@ export const Popup = () => {
 
   return (
     <main>
-      <h3>Inertia Props Inspector</h3>
-      <button onClick={handleClick}>Log Props to Console</button>
-      {status && <p class={`status ${status.type}`}>{status.text}</p>}
-      <a
-        title="Support the developer"
-        class="donate"
-        href="https://ko-fi.com/S6S81VYZ0O"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        ☕ Buy me a coffee
-      </a>
+      <header class="header">
+        <h1 class="title">Inertia Props Inspector</h1>
+        <p class="subtitle">Capture page props live in DevTools</p>
+      </header>
+      <button class="action" onClick={handleClick}>
+        Log Props to Console
+      </button>
+      {status && (
+        <p class={`status status--${status.type}`} role="status" aria-live="polite">
+          {status.text}
+        </p>
+      )}
+      <footer class="footer">
+        <a
+          title="Support the developer"
+          class="donate"
+          href="https://ko-fi.com/S6S81VYZ0O"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ☕ Buy me a coffee
+        </a>
+      </footer>
     </main>
   )
 }

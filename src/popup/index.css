@@ -1,28 +1,101 @@
 :root {
-  --bg: #1e1e2e;
-  --text: #cdd6f4;
-  --accent: #61dafb;
-  --accent-hover: #4fc3f7;
-  --donate: #ff5e5b;
-  --donate-hover: #e84e4b;
+  color-scheme: light dark;
 
-  font-family: system-ui, -apple-system, sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
+  --c-accent: #6366f1;
+  --c-accent-strong: #4f46e5;
+  --c-accent-soft: rgba(99, 102, 241, 0.12);
+  --c-on-accent: #ffffff;
+
+  --c-bg: #ffffff;
+  --c-surface: #f8fafc;
+  --c-text: #0f172a;
+  --c-text-muted: #64748b;
+  --c-border: rgba(15, 23, 42, 0.08);
+
+  --c-success: #15803d;
+  --c-success-bg: rgba(22, 163, 74, 0.1);
+  --c-success-border: rgba(22, 163, 74, 0.2);
+
+  --c-warn: #b45309;
+  --c-warn-bg: rgba(217, 119, 6, 0.1);
+  --c-warn-border: rgba(217, 119, 6, 0.2);
+
+  --c-error: #b91c1c;
+  --c-error-bg: rgba(220, 38, 38, 0.1);
+  --c-error-border: rgba(220, 38, 38, 0.2);
+
+  --c-donate: #ec4899;
+  --c-donate-strong: #db2777;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-button:
+    0 1px 2px rgba(99, 102, 241, 0.18), 0 0 0 1px rgba(99, 102, 241, 0.04);
+
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, 'Helvetica Neue',
+    Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--c-bg);
+  color: var(--c-text);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --bg: #f5f5f5;
-    --text: #1e1e2e;
-    --accent: #0277bd;
-    --accent-hover: #01579b;
-    --donate: #e5443d;
-    --donate-hover: #c9302c;
+    --c-accent: #818cf8;
+    --c-accent-strong: #a5b4fc;
+    --c-accent-soft: rgba(129, 140, 248, 0.18);
+    --c-on-accent: #0f0f14;
+
+    --c-bg: #0f0f14;
+    --c-surface: #18181f;
+    --c-text: #f1f5f9;
+    --c-text-muted: #94a3b8;
+    --c-border: rgba(241, 245, 249, 0.08);
+
+    --c-success: #4ade80;
+    --c-success-bg: rgba(74, 222, 128, 0.12);
+    --c-success-border: rgba(74, 222, 128, 0.24);
+
+    --c-warn: #fbbf24;
+    --c-warn-bg: rgba(251, 191, 36, 0.12);
+    --c-warn-border: rgba(251, 191, 36, 0.24);
+
+    --c-error: #f87171;
+    --c-error-bg: rgba(248, 113, 113, 0.12);
+    --c-error-border: rgba(248, 113, 113, 0.24);
+
+    --c-donate: #f472b6;
+    --c-donate-strong: #ec4899;
+
+    --shadow-button:
+      0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(129, 140, 248, 0.18);
   }
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  min-width: 20rem;
+  min-width: 22rem;
   margin: 0;
+  padding: 0;
+  background-color: var(--c-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }

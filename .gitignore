@@ -10,6 +10,9 @@
 /build
 /package
 
+# generated MAIN-world bundle (built by src/prebuild.js)
+/public/mainWorld.js
+
 # misc
 .DS_Store
 .env.local
